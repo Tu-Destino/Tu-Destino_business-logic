@@ -1,4 +1,4 @@
-package com.riwi.Tu_Destino.api.controllers.errors;
+package com.riwi.Tu_Destino.api.error_handler;
 
 import com.riwi.Tu_Destino.Util.exceptions.IdNotFoundException;
 import com.riwi.Tu_Destino.api.dto.errors.BaseErrorResponse;
@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestControllerAdvice
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
@@ -25,8 +27,13 @@ public class BadRequestController {
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public BaseErrorResponse handleErrors(MethodArgumentNotValidException exception){
-        List<String> erroLis=new ArrayList<>();
-        exception.getAllErrors().forEach(error-> erroLis.add(error.getDefaultMessage()));
+        List<Map<String,String>> erroLis=new ArrayList<>();
+        exception.getBindingResult().getFieldErrors().forEach(fiel->{
+            Map<String ,String > error = new HashMap<>();
+            error.put("error",fiel.getDefaultMessage());
+            error.put("field",fiel.getField());
+            erroLis.add(error);
+        });
         return ErrorsResponse.builder()
                 .code(HttpStatus.BAD_REQUEST.value()).status(HttpStatus.BAD_REQUEST.name()).errors(erroLis).build();
     }
