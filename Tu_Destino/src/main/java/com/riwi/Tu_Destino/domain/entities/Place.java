@@ -2,18 +2,10 @@ package com.riwi.Tu_Destino.domain.entities;
 
 import com.riwi.Tu_Destino.Util.enums.Enum_Type;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "place")
 @Data
@@ -53,5 +45,11 @@ public class Place {
     private String info;
     @Column(length = 100)
     private String btn_url;
+
+    @OneToMany(mappedBy = "place",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<PostDiscover> postDiscovers;
+
 
 }
