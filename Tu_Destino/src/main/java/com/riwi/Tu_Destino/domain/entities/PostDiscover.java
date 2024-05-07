@@ -29,8 +29,8 @@ public class PostDiscover {
     private Place place;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_lugar_id",referencedColumnName = "id")
-    private Usuario usuario;
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private Usuario user;
 
 }
 
