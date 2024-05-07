@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TuDestinoApplication<Tu_Destino>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.riwi.Tu_Destino.TuDestinoApplication",
+            "projectName": "Tu_Destino",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
