@@ -1,4 +1,4 @@
-package com.riwi.Tu_Destino.infrastructure.services;
+package com.riwi.Tu_Destino.infrastructure.services.interfaces;
 
 
 import java.util.List;
