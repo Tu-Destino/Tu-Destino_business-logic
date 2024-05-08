@@ -17,8 +17,10 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class PlaceService implements IPlaceService {
+    
     @Autowired
     private final PlaceRepository placeRepository;
+    
     @Override
     public void delete(Long aLong) {
     Place place = this.find(aLong);
@@ -48,6 +50,7 @@ public class PlaceService implements IPlaceService {
     public PlaceResponse getById(Long id) {
         return this.entityResponse(this.find(id));
     }
+    
     private  Place find(Long id){
         return this.placeRepository.findById(id).orElseThrow(()->new IdNotFoundException("Place"));
     }
@@ -60,6 +63,7 @@ public class PlaceService implements IPlaceService {
 //        response.setVacants(entity.getVacants().stream().map(vacant ->this.vacantToResponse(vacant)).collect(Collectors.toList()));
         return response;
     }
+
     private Place requestToPlace(PlaceRequest request,Place place){
         BeanUtils.copyProperties(request,place);
         return place;

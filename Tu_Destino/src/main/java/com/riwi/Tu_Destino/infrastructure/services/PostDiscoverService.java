@@ -69,6 +69,7 @@ public class PostDiscoverService implements IPostDiscoverService {
     public PostDiscoverResponse getById(String id) {
         return this.entityResponse(this.find(id));
     }
+    
     private PostDiscover find(String id){
         return this.postDiscoverRepository.findById(id).orElseThrow(()->new IdNotFoundException("PostDiscover"));
     }
