@@ -33,10 +33,12 @@ public class Usuario {
     @EqualsAndHashCode.Exclude
     private List<Comment> comment;
 
+
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<PostDiscover> postDiscovers;
     // private Comment comment;
+
 
 }

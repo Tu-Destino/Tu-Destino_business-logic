@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/postDiscover")
@@ -36,10 +38,12 @@ public class PostDiscoverController {
 
     }
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> delete (@PathVariable String id)
+    public ResponseEntity<Map<String,String>> delete (@PathVariable String id)
     {
+        Map<String,String> response = new HashMap<>();
+        response.put("message","Se elimino el post correctamente");
         this.postDiscoverService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(response);
     }
     @PutMapping(path = "/{id}")
     public ResponseEntity<PostDiscoverResponse> update(

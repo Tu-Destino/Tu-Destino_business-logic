@@ -51,5 +51,9 @@ public class Place {
     @EqualsAndHashCode.Exclude
     private List<PostDiscover> postDiscovers;
 
+    @OneToMany(mappedBy = "place",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Comment> comment;
 
 }

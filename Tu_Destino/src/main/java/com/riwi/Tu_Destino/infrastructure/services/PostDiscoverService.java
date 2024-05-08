@@ -51,7 +51,11 @@ public class PostDiscoverService implements IPostDiscoverService {
     @Override
     public PostDiscoverResponse update(String string, PostDiscoverRequest request) {
         PostDiscover postDiscover = this.find(string);
+        Place place= this.placeRepository.findById(request.getPlace()).orElseThrow(()->new IdNotFoundException("place"));
+        Usuario user = this.uRepository.findById(request.getUsuario()).orElseThrow(()->new IdNotFoundException("User"));
         PostDiscover postDiscoverUpdate=this.requestToEntity(request,postDiscover);
+        postDiscoverUpdate.setUser(user);
+        postDiscoverUpdate.setPlace(place);
         return this.entityResponse(this.postDiscoverRepository.save(postDiscoverUpdate));
     }
 
