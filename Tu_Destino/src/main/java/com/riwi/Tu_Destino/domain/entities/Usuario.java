@@ -1,13 +1,9 @@
 package com.riwi.Tu_Destino.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "usuarios")
 @Data
@@ -19,4 +15,11 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String nombre;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<PostDiscover> postDiscovers;
+    // private Comment comment;
+
 }
