@@ -9,7 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
 
 @Entity(name = "cookies")
 @Data
@@ -17,7 +16,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cookies {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+   @Id
+   @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    private Integer likes;
 }
