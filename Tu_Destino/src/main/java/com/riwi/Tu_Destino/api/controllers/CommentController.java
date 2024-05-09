@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,17 @@ public class CommentController {
         return ResponseEntity.ok(this.commentService.getAll());
     }
 
+    // 6.2
+    //getById
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<CommentResponse> getById(
+        @PathVariable Long id
+    ){
+        return ResponseEntity.ok(this.commentService.getById(id));
+    }
+
+
+
     // insert
     @PostMapping
     public ResponseEntity<CommentResponse> insert(
@@ -49,6 +61,16 @@ public class CommentController {
         
         this.commentService.delete(id);
         return ResponseEntity.ok(response);
+    }
+
+    //.6.1
+    // update
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<CommentResponse>update(
+            @PathVariable Long id,
+            @Validated @RequestBody CommentRequest commentRequest
+    ){
+        return ResponseEntity.ok(this.commentService.update(id,commentRequest));
     }
     
 }

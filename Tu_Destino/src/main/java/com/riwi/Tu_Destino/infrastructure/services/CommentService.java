@@ -12,10 +12,10 @@ import com.riwi.Tu_Destino.api.dto.requests.CommentRequest;
 import com.riwi.Tu_Destino.api.dto.response.CommentResponse;
 import com.riwi.Tu_Destino.domain.entities.Comment;
 import com.riwi.Tu_Destino.domain.entities.Place;
-import com.riwi.Tu_Destino.domain.entities.Usuario;
+import com.riwi.Tu_Destino.domain.entities.User;
 import com.riwi.Tu_Destino.domain.repositories.CommentRepository;
 import com.riwi.Tu_Destino.domain.repositories.PlaceRepository;
-import com.riwi.Tu_Destino.domain.repositories.URepository;
+import com.riwi.Tu_Destino.domain.repositories.UserRepository;
 import com.riwi.Tu_Destino.infrastructure.abstract_services.ICommentService;
 
 import lombok.AllArgsConstructor;
@@ -29,8 +29,9 @@ public class CommentService implements ICommentService{
     private final CommentRepository commentRepository;
     @Autowired
     private final PlaceRepository placeRepository;
+    // 5
     @Autowired
-    private final URepository uRepository;
+    private final UserRepository userRepository;
 
 
     @Override
@@ -38,11 +39,12 @@ public class CommentService implements ICommentService{
         
     }
 
+    // 5.1
     // create
     @Override
     public CommentResponse create(CommentRequest request) {
         Place place = this.placeRepository.findById(request.getPlace()).orElseThrow(()-> new IdNotFoundException("Place"));
-        Usuario user= this.uRepository.findById(request.getUser()).orElseThrow(()-> new IdNotFoundException("Usuario"));
+        User user= this.userRepository.findById(request.getUser()).orElseThrow(()-> new IdNotFoundException("Usuario"));
         Comment comment = this.requestToEntity(request, new Comment());
         
 
@@ -52,12 +54,13 @@ public class CommentService implements ICommentService{
         return this.entityResponse(this.commentRepository.save(comment));
     }
 
+    //5.2
     // update
     @Override
     public CommentResponse update(Long id, CommentRequest request) {
         Comment comment = this.find(id);
         Place place = this.placeRepository.findById(request.getPlace()).orElseThrow(()->new IdNotFoundException("Place"));
-        Usuario user = this.uRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("Usuario"));
+        User user = this.userRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("Usuario"));
         Comment postCommentUpdate = this.requestToEntity(request, comment);
 
         postCommentUpdate.setPlace(place);

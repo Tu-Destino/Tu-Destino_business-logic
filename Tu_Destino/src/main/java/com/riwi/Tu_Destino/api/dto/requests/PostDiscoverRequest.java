@@ -1,7 +1,5 @@
 package com.riwi.Tu_Destino.api.dto.requests;
 
-import com.riwi.Tu_Destino.domain.entities.Place;
-import com.riwi.Tu_Destino.domain.entities.Usuario;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

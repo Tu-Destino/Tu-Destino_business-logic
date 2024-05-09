@@ -30,6 +30,7 @@ public class PostDiscoverController {
     ){
         return  ResponseEntity.ok(this.postDiscoverService.getById(id));
     }
+    
     @PostMapping
     public ResponseEntity<PostDiscoverResponse> insert(
             @Validated @RequestBody PostDiscoverRequest request

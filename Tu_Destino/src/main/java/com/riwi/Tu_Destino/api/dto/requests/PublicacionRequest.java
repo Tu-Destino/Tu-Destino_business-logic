@@ -1,4 +1,4 @@
-package com.riwi.Tu_Destino.api.dto.request;
+package com.riwi.Tu_Destino.api.dto.requests;
 
 import com.riwi.Tu_Destino.Util.enums.StatePublicacion;
 import jakarta.validation.constraints.NotBlank;

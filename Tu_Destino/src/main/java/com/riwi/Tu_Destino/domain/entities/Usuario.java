@@ -28,10 +28,7 @@ public class Usuario {
     private String id;
     private String nombre;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    private List<Comment> comment;
+    // 3 --------------
 
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)

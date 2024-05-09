@@ -1,8 +1,5 @@
 package com.riwi.Tu_Destino.api.dto.response;
 
-import com.riwi.Tu_Destino.domain.entities.Place;
-import com.riwi.Tu_Destino.domain.entities.Usuario;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

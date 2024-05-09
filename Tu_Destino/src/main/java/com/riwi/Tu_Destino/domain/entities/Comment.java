@@ -30,9 +30,10 @@ public class Comment {
     private String comentary;
     private Date date;
 
+    //2
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
-    private Usuario user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lugar_id",referencedColumnName = "id")
