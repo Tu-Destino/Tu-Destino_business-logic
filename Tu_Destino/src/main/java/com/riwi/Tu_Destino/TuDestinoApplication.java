@@ -8,6 +8,9 @@ public class TuDestinoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TuDestinoApplication.class, args);
+
+		System.out.println("inicio");
 	}
+
 
 }
