@@ -1,8 +1,16 @@
 package com.riwi.Tu_Destino.infrastructure.services;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.riwi.Tu_Destino.api.dto.response.PlaceResponse;
+import com.riwi.Tu_Destino.api.dto.response.UserResponse;
+import com.riwi.Tu_Destino.domain.entities.User;
+import com.riwi.Tu_Destino.domain.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +38,7 @@ public class CommentService implements ICommentService{
     @Autowired
     private final PlaceRepository placeRepository;
     @Autowired
-    private final URepository uRepository;
+    private final UserRepository uRepository;
 
 
     @Override
@@ -42,13 +50,13 @@ public class CommentService implements ICommentService{
     @Override
     public CommentResponse create(CommentRequest request) {
         Place place = this.placeRepository.findById(request.getPlace()).orElseThrow(()-> new IdNotFoundException("Place"));
-        Usuario user= this.uRepository.findById(request.getUser()).orElseThrow(()-> new IdNotFoundException("Usuario"));
+        User user= this.uRepository.findById(request.getUser()).orElseThrow(()-> new IdNotFoundException("Usuario"));
         Comment comment = this.requestToEntity(request, new Comment());
-        
-
         comment.setPlace(place);
         comment.setUser(user);
-        
+        Date date = new Date(1);
+        DateFormat dateFormat=new SimpleDateFormat("dd/MM/yy");
+        comment.setDate(LocalDate.now());
         return this.entityResponse(this.commentRepository.save(comment));
     }
 
@@ -57,7 +65,7 @@ public class CommentService implements ICommentService{
     public CommentResponse update(Long id, CommentRequest request) {
         Comment comment = this.find(id);
         Place place = this.placeRepository.findById(request.getPlace()).orElseThrow(()->new IdNotFoundException("Place"));
-        Usuario user = this.uRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("Usuario"));
+        User user = this.uRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("Usuario"));
         Comment postCommentUpdate = this.requestToEntity(request, comment);
 
         postCommentUpdate.setPlace(place);
@@ -90,7 +98,12 @@ public class CommentService implements ICommentService{
         CommentResponse response = new CommentResponse();
 
         BeanUtils.copyProperties(entity,response);
-        BeanUtils.copyProperties(entity,response);
+        PlaceResponse placeResponse= new PlaceResponse();
+        UserResponse userResponse=new UserResponse();
+        BeanUtils.copyProperties(entity.getPlace(),placeResponse);
+        BeanUtils.copyProperties(entity.getUser(),userResponse);
+        response.setPlace(placeResponse);
+        response.setUser(userResponse);
 
         return response;
     }

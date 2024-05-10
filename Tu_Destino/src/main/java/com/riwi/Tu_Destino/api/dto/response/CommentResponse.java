@@ -1,6 +1,7 @@
 package com.riwi.Tu_Destino.api.dto.response;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import com.riwi.Tu_Destino.domain.entities.Usuario;
 
@@ -14,7 +15,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentResponse {
-    private Date date;
+    private Long id;
+    private LocalDate date;
     private String comentary;
-    private Usuario user;
+    private UserResponse user;
+    private PlaceResponse place;
 }

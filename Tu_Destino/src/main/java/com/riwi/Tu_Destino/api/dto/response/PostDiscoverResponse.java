@@ -19,5 +19,5 @@ public class PostDiscoverResponse {
     private String etiquetas;
     private String urlImg;
     private PlaceResponse place;
-
+    private  UserResponse user;
 }

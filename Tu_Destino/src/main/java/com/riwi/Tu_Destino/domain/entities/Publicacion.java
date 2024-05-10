@@ -38,6 +38,6 @@ public class Publicacion {
     // @ManyToOne
     // Unnecessary to return users data from publication
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id_user")
-    private String user_id;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user_id;
 }

@@ -30,7 +30,9 @@ public class PostDiscover {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
-    private Usuario user;
+    private User user;
+
+
 
 }
 
