@@ -4,12 +4,9 @@ import java.util.List;
 
 import com.riwi.Tu_Destino.Util.enums.RoleUser;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "user")
 @Data
@@ -33,10 +30,14 @@ public class User {
     @JoinColumn(name = "cookies_id",referencedColumnName = "id")
     private Cookies cookies;
 
-    // 1
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<PostDiscover> postDiscovers;
+
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Comment> comment;
-
 }

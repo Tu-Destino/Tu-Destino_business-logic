@@ -1,6 +1,7 @@
 package com.riwi.Tu_Destino.domain.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,7 +29,7 @@ public class Comment {
     @Lob
     @Column(nullable = false)
     private String comentary;
-    private Date date;
+    private LocalDate date;
 
     //2
     @ManyToOne(fetch = FetchType.LAZY)

@@ -4,12 +4,15 @@ import com.riwi.Tu_Destino.Util.exceptions.IdNotFoundException;
 import com.riwi.Tu_Destino.api.dto.requests.PostDiscoverRequest;
 import com.riwi.Tu_Destino.api.dto.response.PlaceResponse;
 import com.riwi.Tu_Destino.api.dto.response.PostDiscoverResponse;
+import com.riwi.Tu_Destino.api.dto.response.UserResponse;
 import com.riwi.Tu_Destino.domain.entities.Place;
 import com.riwi.Tu_Destino.domain.entities.PostDiscover;
+import com.riwi.Tu_Destino.domain.entities.User;
 import com.riwi.Tu_Destino.domain.entities.Usuario;
 import com.riwi.Tu_Destino.domain.repositories.PlaceRepository;
 import com.riwi.Tu_Destino.domain.repositories.PostDiscoverRepository;
 import com.riwi.Tu_Destino.domain.repositories.URepository;
+import com.riwi.Tu_Destino.domain.repositories.UserRepository;
 import com.riwi.Tu_Destino.infrastructure.abstract_services.IPostDiscoverService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -26,7 +29,7 @@ public class PostDiscoverService implements IPostDiscoverService {
     @Autowired
     private final PlaceRepository placeRepository;
     @Autowired
-    private final URepository uRepository;
+    private final UserRepository uRepository;
 
     @Override
     public void delete(String string) {
@@ -37,7 +40,7 @@ public class PostDiscoverService implements IPostDiscoverService {
     @Override
     public PostDiscoverResponse create(PostDiscoverRequest request) {
         Place place = this.placeRepository.findById(request.getPlace()).orElseThrow(()->new IdNotFoundException("Place"));
-        Usuario user= this.uRepository.findById(request.getUsuario()).orElseThrow(()->new IdNotFoundException("User"));
+        User user= this.uRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("User"));
         PostDiscover postDiscover= this.requestToEntity(request,new PostDiscover());
 
 
@@ -52,7 +55,7 @@ public class PostDiscoverService implements IPostDiscoverService {
     public PostDiscoverResponse update(String string, PostDiscoverRequest request) {
         PostDiscover postDiscover = this.find(string);
         Place place= this.placeRepository.findById(request.getPlace()).orElseThrow(()->new IdNotFoundException("place"));
-        Usuario user = this.uRepository.findById(request.getUsuario()).orElseThrow(()->new IdNotFoundException("User"));
+        User user = this.uRepository.findById(request.getUser()).orElseThrow(()->new IdNotFoundException("User"));
         PostDiscover postDiscoverUpdate=this.requestToEntity(request,postDiscover);
         postDiscoverUpdate.setUser(user);
         postDiscoverUpdate.setPlace(place);
@@ -79,8 +82,11 @@ public class PostDiscoverService implements IPostDiscoverService {
         PostDiscoverResponse response = new PostDiscoverResponse();
         BeanUtils.copyProperties(entity,response);
         PlaceResponse placeResponse= new PlaceResponse();
+        UserResponse userResponse=new UserResponse();
         BeanUtils.copyProperties(entity.getPlace(),placeResponse);
+        BeanUtils.copyProperties(entity.getUser(),userResponse);
         response.setPlace(placeResponse);
+        response.setUser(userResponse);
 
         return response;
     }

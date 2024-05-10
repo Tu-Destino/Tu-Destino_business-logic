@@ -27,5 +27,5 @@ public class PostDiscoverRequest {
     @NotNull(message = "Se requiere el lugar del Post")
     private Long place;
     @NotNull(message = "Se requiere el usuario que hizo el Post")
-    private String usuario;
+    private String user;
 }
