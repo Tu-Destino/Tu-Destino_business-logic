@@ -20,10 +20,8 @@ import com.riwi.Tu_Destino.api.dto.requests.CommentRequest;
 import com.riwi.Tu_Destino.api.dto.response.CommentResponse;
 import com.riwi.Tu_Destino.domain.entities.Comment;
 import com.riwi.Tu_Destino.domain.entities.Place;
-import com.riwi.Tu_Destino.domain.entities.User;
 import com.riwi.Tu_Destino.domain.repositories.CommentRepository;
 import com.riwi.Tu_Destino.domain.repositories.PlaceRepository;
-import com.riwi.Tu_Destino.domain.repositories.UserRepository;
 import com.riwi.Tu_Destino.infrastructure.abstract_services.ICommentService;
 
 import lombok.AllArgsConstructor;
