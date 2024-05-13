@@ -21,8 +21,7 @@ public class Place {
     private Enum_Type enum_tipo;
     @Column(nullable = false, length = 100)
     private String titulo;
-    @Lob
-    @Column(nullable = false)
+    @Column(nullable = false,length = 2000)
     private String detalles;
     @Column(length = 100,nullable = false)
     private String precio;
@@ -32,7 +31,7 @@ public class Place {
     private String direccion;
     @Column(length = 100)
     private String link_direccion;
-    @Column(length = 100)
+    @Column(length = 1000)
     private String vr;
     @Column(length = 100)
     private String web;
@@ -40,10 +39,9 @@ public class Place {
     private String telefono;
     @Column(length = 100,nullable = false)
     private double puntuacion;
-    @Column(nullable = false)
-    @Lob
-    private String info;
-    @Column(length = 100)
+    @Column(nullable = false ,length = 2000)
+    private String info ;
+    @Column(length = 1000)
     private String btn_url;
 
     @OneToMany(mappedBy = "place",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
