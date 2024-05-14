@@ -18,27 +18,27 @@ public class UserController {
 
     @Autowired
     private final IUserService userService;
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ResponseEntity<List<UserResponse>> get(){
         return ResponseEntity.ok(this.userService.getAll());
     }
 
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/{id}")
     public ResponseEntity<UserResponse> getById(
             @PathVariable String id
     ){
         return ResponseEntity.ok(this.userService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public ResponseEntity<UserResponse>insert(
             @Validated @RequestBody UserRequest user
             ){
         return ResponseEntity.ok(this.userService.create(user));
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(
             @PathVariable String id
@@ -46,7 +46,7 @@ public class UserController {
         this.userService.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping(path = "/{id}")
     public ResponseEntity<UserResponse>update(
             @PathVariable String id,

@@ -22,19 +22,19 @@ public class PublicacionController {
     @Autowired
     private final IPublicationService publicationService;
 
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ResponseEntity<List<PublicacionResponse>> get(){
         return ResponseEntity.ok(this.publicationService.getAll());
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PublicacionResponse> getById(
             @PathVariable Long id
     ){
         return  ResponseEntity.ok(this.publicationService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public ResponseEntity<PublicacionResponse> insert(
             @Validated @RequestBody PublicacionRequest request
@@ -42,7 +42,7 @@ public class PublicacionController {
         return ResponseEntity.ok(this.publicationService.create(request));
 
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable Long id)
     {
@@ -51,7 +51,7 @@ public class PublicacionController {
         this.publicationService.delete(id);
         return ResponseEntity.ok(response);
     }
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PublicacionResponse> update(
             @PathVariable Long id,

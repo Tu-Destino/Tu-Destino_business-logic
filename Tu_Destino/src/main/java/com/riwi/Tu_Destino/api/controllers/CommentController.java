@@ -23,7 +23,7 @@ public class CommentController {
     private final ICommentService commentService;
 
     // get
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ResponseEntity<List<CommentResponse>> get(){
         return ResponseEntity.ok(this.commentService.getAll());
@@ -31,7 +31,7 @@ public class CommentController {
 
     // 6.2
     //getById
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/{id}")
     public ResponseEntity<CommentResponse> getById(
         @PathVariable Long id
@@ -42,7 +42,7 @@ public class CommentController {
 
 
     // insert
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public ResponseEntity<CommentResponse> insert(
         @Validated @RequestBody CommentRequest comment){
@@ -50,7 +50,7 @@ public class CommentController {
         }
 
     // eliminar
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete(@PathVariable Long id){
         Map<String,String> response = new HashMap<>();
@@ -62,7 +62,7 @@ public class CommentController {
 
     //.6.1
     // update
-    @CrossOrigin(origins = "https://tu-destino-business-logic.onrender.com")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping(path = "/{id}")
     public ResponseEntity<CommentResponse>update(
             @PathVariable Long id,
