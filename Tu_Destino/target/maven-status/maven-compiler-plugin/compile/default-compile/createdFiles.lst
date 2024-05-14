@@ -19,6 +19,7 @@ com\riwi\Tu_Destino\domain\entities\Comment$CommentBuilder.class
 com\riwi\Tu_Destino\api\dto\requests\UserRequest$UserRequestBuilder.class
 com\riwi\Tu_Destino\api\dto\errors\BaseErrorResponse$BaseErrorResponseBuilderImpl.class
 com\riwi\Tu_Destino\api\dto\response\UserResponse.class
+com\riwi\Tu_Destino\infrastructure\services\PublicationService.class
 com\riwi\Tu_Destino\domain\repositories\CommentRepository.class
 com\riwi\Tu_Destino\api\dto\errors\ErrorsResponse$ErrorsResponseBuilderImpl.class
 com\riwi\Tu_Destino\infrastructure\services\CommentService.class
@@ -68,3 +69,4 @@ com\riwi\Tu_Destino\api\dto\errors\ErrorsResponse.class
 com\riwi\Tu_Destino\infrastructure\abstract_services\ICommentService.class
 com\riwi\Tu_Destino\api\dto\errors\ErrorResponse.class
 com\riwi\Tu_Destino\api\dto\requests\UserRequest.class
+com\riwi\Tu_Destino\infrastructure\abstract_services\IPublicationService.class

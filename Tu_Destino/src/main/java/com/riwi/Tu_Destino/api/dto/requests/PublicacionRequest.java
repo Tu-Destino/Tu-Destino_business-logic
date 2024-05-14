@@ -23,11 +23,7 @@ public class PublicacionRequest {
     private String etiquetas;
     @NotBlank(message = "Required URL image!")
     private String url_img;
-
-    private LocalDateTime fecha_publicacion;
-    private StatePublicacion enum_estado;
-
-    @Size(max = 40,min = 0)
+    @Size(max = 40,min = 1,message = "The id cannot be less than 0")
     @NotBlank(message = "Required User id!")
     private String user_id;
 }

@@ -23,5 +23,5 @@ public class PublicacionResponse {
     private StatePublicacion enum_estado;
 
     //For merge
-    private String user_id;
+    private UserResponse user_id;
 }

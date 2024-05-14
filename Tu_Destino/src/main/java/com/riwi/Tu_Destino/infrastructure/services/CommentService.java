@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import com.riwi.Tu_Destino.api.dto.response.PlaceResponse;
 import com.riwi.Tu_Destino.api.dto.response.UserResponse;
+import com.riwi.Tu_Destino.domain.entities.Publicacion;
 import com.riwi.Tu_Destino.domain.entities.User;
 import com.riwi.Tu_Destino.domain.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
@@ -42,7 +43,8 @@ public class CommentService implements ICommentService{
 
     @Override
     public void delete(Long id) {
-        
+        Comment comment = this.find(id);
+        this.commentRepository.delete(comment);
     }
 
     // 5.1
