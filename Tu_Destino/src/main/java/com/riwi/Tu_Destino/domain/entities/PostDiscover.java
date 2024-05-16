@@ -15,13 +15,13 @@ public class PostDiscover {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @Column(length = 70, nullable = false)
+    @Column(length = 250, nullable = false)
     private String titulo;
-    @Column(length = 150, nullable = false)
+    @Column(length = 1000, nullable = false)
     private String descripcion;
-    @Column(length = 110, nullable = true)
+    @Column(length = 300, nullable = true)
     private String etiquetas;
-    @Column(length = 200, nullable = false)
+    @Column(length = 500, nullable = false)
     private String urlImg;
 
     @ManyToOne(fetch = FetchType.LAZY)

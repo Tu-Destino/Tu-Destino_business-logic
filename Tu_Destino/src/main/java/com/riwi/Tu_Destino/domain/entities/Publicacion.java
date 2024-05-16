@@ -19,13 +19,13 @@ public class Publicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 60, nullable = false)
+    @Column(length = 250, nullable = false)
     private String titulo;
-    @Column(length = 150, nullable = true)
+    @Column(length = 1000, nullable = true)
     private String descripcion;
-    @Column(length = 100, nullable = false)
+    @Column(length = 300, nullable = false)
     private String etiquetas;
-    @Column(length = 200, nullable = false)
+    @Column(length = 500, nullable = false)
     private String url_img;
     @Column(nullable = false)
     private LocalDateTime fecha_publicacion;
