@@ -28,8 +28,9 @@ public class Comment {
     private Long id;
 
     @Column(nullable = false ,length = 2000)
-    private String comentary;
-    private LocalDate date;
+    private String comment;
+    @Column(nullable = false)
+    private LocalDate comment_date;
 
     //2
     @ManyToOne(fetch = FetchType.LAZY)

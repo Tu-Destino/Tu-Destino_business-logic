@@ -33,7 +33,7 @@ public class Place {
     private String link_direccion;
     @Column(length = 1000)
     private String vr;
-    @Column(length = 100)
+    @Column(length = 120)
     private String web;
     @Column(length = 100)
     private String telefono;
