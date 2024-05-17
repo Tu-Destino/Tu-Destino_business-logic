@@ -48,7 +48,6 @@ public class PublicationService implements IPublicationService {
         Publicacion publicacion = this.find(aLong);
         User user = this.uRepository.findById(request.getUser_id()).orElseThrow(()->new IdNotFoundException("User"));
         Publicacion publicacionUpdate =this.requestToEntity(request,publicacion);
-        publicacion.setEnum_estado(StatePublicacion.PENDIENTE);
         return this.entityResponse(this.publicacionRepository.save(publicacionUpdate));
     }
 
