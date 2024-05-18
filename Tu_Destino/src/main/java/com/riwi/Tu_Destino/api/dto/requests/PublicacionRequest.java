@@ -21,11 +21,13 @@ public class PublicacionRequest {
     @Size(max = 1000, message = "You exceeded the number of characters allowed (1000)")
     private String descripcion;
     @Size(max = 300, message = "You exceeded the number of characters allowed (300)")
-    @NotBlank(message = "Required label!")
+    @NotBlank(message = "Required tags!")
     private String etiquetas;
     @Size(max = 500, message = "You exceeded the number of characters allowed (500)")
     @NotBlank(message = "Required URL image!")
     private String url_img;
     @NotBlank(message = "Required User id!")
     private String user_id;
+    @NotBlank(message = "Required status!")
+    private StatePublicacion enum_estado;
 }
