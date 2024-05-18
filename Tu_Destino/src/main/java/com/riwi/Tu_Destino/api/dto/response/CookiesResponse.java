@@ -1,8 +1,6 @@
 package com.riwi.Tu_Destino.api.dto.response;
 
-import java.time.LocalDate;
-
-
+import com.riwi.Tu_Destino.Util.enums.Iso_639_1;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +10,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentResponse {
-    private Long id;
-    private String comment;
-    private LocalDate comment_date;
+public class CookiesResponse {
+
+    private String id;
+    private String label_counter;
+    private Iso_639_1 language;
+    private String favorites;
+
     private UserResponse user;
-    private PlaceResponse place;
 }

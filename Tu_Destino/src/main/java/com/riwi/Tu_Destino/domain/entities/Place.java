@@ -3,6 +3,7 @@ package com.riwi.Tu_Destino.domain.entities;
 import com.riwi.Tu_Destino.Util.enums.Enum_Type;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
 
 import java.util.List;

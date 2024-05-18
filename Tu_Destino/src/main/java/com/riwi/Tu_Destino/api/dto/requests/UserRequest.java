@@ -14,16 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRequest {
-    @NotBlank(message = "El nombre no puede estar vacio")
-    @Size(max = 60, message = "superaste el limite de caracteres permitidos")
+    @NotBlank(message = "The name can't be null")
+    @Size(max = 50, message = "You exceeded the number of characters allowed (50)")
     private String name;
-    @NotBlank(message = "El email no puede  estar vacio")
-    @Size(max = 100, message = "superaste el limite de caracteres permitidos")
+    @NotBlank(message = "The email can't be null")
+    @Size(max = 40, message = "You exceeded the number of characters allowed (40)")
     private String email;
-    @NotBlank(message = "La contraseña no puede  estar vacia")
-    @Size(max = 30, message = "superaste el limite de caracteres permitidos")
+    @NotBlank(message = "The password can't be null")
+    @Size(max = 40, message = "You exceeded the number of characters allowed (40)")
     private String password;
-    @NotNull(message = "El enum no puede ser nulo")
+    @NotNull(message = "The User_Role can't be null")
     private RoleUser enum_rol;
     private String cookies_id;
 }

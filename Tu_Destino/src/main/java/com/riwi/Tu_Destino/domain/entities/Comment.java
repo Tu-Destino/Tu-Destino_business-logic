@@ -30,7 +30,7 @@ public class Comment {
     @Column(nullable = false ,length = 2000)
     private String comment;
     @Column(nullable = false)
-    private LocalDate comment_date;
+    private LocalDate date;
 
     //2
     @ManyToOne(fetch = FetchType.LAZY)
