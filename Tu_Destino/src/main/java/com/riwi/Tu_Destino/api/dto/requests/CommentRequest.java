@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentRequest {
-    @NotBlank(message = "Este atributo es obligatorio")
-    @Size(min = 20,message = "Tu comentario debe tener mas de 50 caracteres")
-    private String comentary;
-    @NotNull(message = "Este atributo es obligatorio")
+    @NotBlank(message = "This attribute is required")
+    @Size(min = 20, max =2000,message = "Comment must be more than 50 characters")
+    private String comment;
+    @NotNull(message = "This attribute is required")
     private String user;
-    @NotNull(message = "Este atributo es obligatorio")
+    @NotNull(message = "This attribute is required")
     private Long place;
 }

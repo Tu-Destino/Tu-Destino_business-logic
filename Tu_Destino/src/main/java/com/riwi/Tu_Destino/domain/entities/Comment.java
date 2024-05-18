@@ -28,7 +28,8 @@ public class Comment {
     private Long id;
 
     @Column(nullable = false ,length = 2000)
-    private String comentary;
+    private String comment;
+    @Column(nullable = false)
     private LocalDate date;
 
     //2

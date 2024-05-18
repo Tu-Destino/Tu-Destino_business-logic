@@ -25,4 +25,6 @@ public class PlaceResponse {
     private double puntuacion;
     private String info;
     private String btn_url;
+
+
 }
