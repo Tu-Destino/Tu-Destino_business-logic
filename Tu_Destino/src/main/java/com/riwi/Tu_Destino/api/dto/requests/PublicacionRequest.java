@@ -2,6 +2,7 @@ package com.riwi.Tu_Destino.api.dto.requests;
 
 import com.riwi.Tu_Destino.Util.enums.StatePublicacion;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,6 @@ public class PublicacionRequest {
     private String url_img;
     @NotBlank(message = "Required User id!")
     private String user_id;
-    @NotBlank(message = "Required status!")
+    @NotNull(message = "Required status!")
     private StatePublicacion enum_estado;
 }
