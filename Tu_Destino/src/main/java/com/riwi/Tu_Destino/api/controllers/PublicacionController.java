@@ -22,19 +22,19 @@ public class PublicacionController {
     @Autowired
     private final IPublicationService publicationService;
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<PublicacionResponse>> get(){
         return ResponseEntity.ok(this.publicationService.getAll());
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PublicacionResponse> getById(
             @PathVariable Long id
     ){
         return  ResponseEntity.ok(this.publicationService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<PublicacionResponse> insert(
             @Validated @RequestBody PublicacionRequest request

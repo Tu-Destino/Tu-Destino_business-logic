@@ -19,19 +19,19 @@ import java.util.Map;
 public class PostDiscoverController {
     @Autowired
     private final IPostDiscoverService postDiscoverService;
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<PostDiscoverResponse>> get(){
         return ResponseEntity.ok(this.postDiscoverService.getAll());
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PostDiscoverResponse> getById(
             @PathVariable String id
     ){
         return  ResponseEntity.ok(this.postDiscoverService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<PostDiscoverResponse> insert(
             @Validated @RequestBody PostDiscoverRequest request
@@ -40,7 +40,7 @@ public class PostDiscoverController {
 
     }
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable String id)
     {
@@ -49,7 +49,7 @@ public class PostDiscoverController {
         this.postDiscoverService.delete(id);
         return ResponseEntity.ok(response);
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PostDiscoverResponse> update(
             @PathVariable String id,

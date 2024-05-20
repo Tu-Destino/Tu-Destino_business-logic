@@ -19,13 +19,13 @@ public class CookiesController {
     @Autowired
     private final ICookiesService cookiesService;
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<CookiesResponse>> get(){
         return ResponseEntity.ok(this.cookiesService.getAll());
     }
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public ResponseEntity<CookiesResponse> getById(
             @PathVariable String id
@@ -33,7 +33,7 @@ public class CookiesController {
         return ResponseEntity.ok(this.cookiesService.getById(id));
     }
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<CookiesResponse> insert(
             @Validated @RequestBody CookiesRequest cookies
@@ -48,7 +48,7 @@ public class CookiesController {
         return ResponseEntity.noContent().build();
     }
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PutMapping(path = "/{id}")
     private ResponseEntity<CookiesResponse>update(
             @PathVariable String id,

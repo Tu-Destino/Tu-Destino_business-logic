@@ -17,32 +17,32 @@ import java.util.List;
 public class PlaceController {
     @Autowired
     private final IPlaceService placeService;
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<PlaceResponse>> get(){
         return ResponseEntity.ok(this.placeService.getAll());
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse> getById(
             @PathVariable Long id
     ){
         return ResponseEntity.ok(this.placeService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<PlaceResponse> insert(
             @Validated @RequestBody PlaceRequest place
             ){
         return ResponseEntity.ok(this.placeService.create(place));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         this.placeService.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
+    @CrossOrigin(origins = "*")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse>update(
             @PathVariable Long id,
