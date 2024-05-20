@@ -3,6 +3,7 @@ package com.riwi.Tu_Destino.domain.entities;
 import com.riwi.Tu_Destino.Util.enums.Enum_Type;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class Place {
     private String link_direccion;
     @Column(length = 1000)
     private String vr;
-    @Column(length = 100)
+    @Column(length = 120)
     private String web;
     @Column(length = 100)
     private String telefono;

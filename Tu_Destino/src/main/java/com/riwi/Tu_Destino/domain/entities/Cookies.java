@@ -1,9 +1,7 @@
 package com.riwi.Tu_Destino.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.riwi.Tu_Destino.Util.enums.Iso_639_1;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +17,14 @@ public class Cookies {
    @Id
    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private Integer likes;
+   @Column(length = 200)
+    private String label_counter;
+   @Column(length = 2)
+   private Iso_639_1 language;
+   @Column(length = 2000)
+   private String favorites;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private User user;
 }

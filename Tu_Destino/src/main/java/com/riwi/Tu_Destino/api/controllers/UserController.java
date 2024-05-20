@@ -18,7 +18,7 @@ public class UserController {
 
     @Autowired
     private final IUserService userService;
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @GetMapping
     public ResponseEntity<List<UserResponse>> get(){
         return ResponseEntity.ok(this.userService.getAll());
