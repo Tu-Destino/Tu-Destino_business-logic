@@ -3,6 +3,7 @@ package com.riwi.Tu_Destino.api.controllers;
 import com.riwi.Tu_Destino.api.dto.requests.PostDiscoverRequest;
 import com.riwi.Tu_Destino.api.dto.response.PostDiscoverResponse;
 import com.riwi.Tu_Destino.infrastructure.abstract_services.IPostDiscoverService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,15 @@ import java.util.Map;
 public class PostDiscoverController {
     @Autowired
     private final IPostDiscoverService postDiscoverService;
+
+    @Operation(summary = "Get all posts", description = "Retrieve a list of all posts in the system.")
     @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<PostDiscoverResponse>> get(){
         return ResponseEntity.ok(this.postDiscoverService.getAll());
     }
+
+    @Operation(summary = "Get a post by ID", description = "Retrieve a post by its ID. \n\nParameters: \n- id: ID of the post to be retrieved (Path Variable)")
     @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PostDiscoverResponse> getById(
@@ -31,6 +36,8 @@ public class PostDiscoverController {
     ){
         return  ResponseEntity.ok(this.postDiscoverService.getById(id));
     }
+
+    @Operation(summary = "Create a new post", description = "Create a new post. \n\nRequest Body: \n- postDiscover: PostDiscover object to be created")
     @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<PostDiscoverResponse> insert(
@@ -40,6 +47,7 @@ public class PostDiscoverController {
 
     }
 
+    @Operation(summary = "Delete a post", description = "Delete a post by its ID. \n\nParameters: \n- id: ID of the post to be deleted (Path Variable)")
     @CrossOrigin(origins = "*")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable String id)
@@ -49,6 +57,7 @@ public class PostDiscoverController {
         this.postDiscoverService.delete(id);
         return ResponseEntity.ok(response);
     }
+    @Operation(summary = "Update a post", description = "Update an existing post. \n\nParameters: \n- id: ID of the post to be updated (Path Variable) \n\nRequest Body: \n- postDiscover: Updated PostDiscover object")
     @CrossOrigin(origins = "*")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PostDiscoverResponse> update(
