@@ -17,32 +17,32 @@ import java.util.List;
 public class PlaceController {
     @Autowired
     private final IPlaceService placeService;
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @GetMapping
     public ResponseEntity<List<PlaceResponse>> get(){
         return ResponseEntity.ok(this.placeService.getAll());
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @GetMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse> getById(
             @PathVariable Long id
     ){
         return ResponseEntity.ok(this.placeService.getById(id));
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @PostMapping
     public ResponseEntity<PlaceResponse> insert(
             @Validated @RequestBody PlaceRequest place
             ){
         return ResponseEntity.ok(this.placeService.create(place));
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         this.placeService.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse>update(
             @PathVariable Long id,

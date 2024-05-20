@@ -24,21 +24,21 @@ public class UserController {
         return ResponseEntity.ok(this.userService.getAll());
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @GetMapping(path = "/{id}")
     public ResponseEntity<UserResponse> getById(
             @PathVariable String id
     ){
         return ResponseEntity.ok(this.userService.getById(id));
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @PostMapping
     public ResponseEntity<UserResponse>insert(
             @Validated @RequestBody UserRequest user
             ){
         return ResponseEntity.ok(this.userService.create(user));
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(
             @PathVariable String id
@@ -46,7 +46,7 @@ public class UserController {
         this.userService.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
     @PutMapping(path = "/{id}")
     public ResponseEntity<UserResponse>update(
             @PathVariable String id,
