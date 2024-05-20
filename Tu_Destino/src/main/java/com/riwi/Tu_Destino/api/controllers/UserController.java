@@ -3,6 +3,7 @@ package com.riwi.Tu_Destino.api.controllers;
 import com.riwi.Tu_Destino.api.dto.requests.UserRequest;
 import com.riwi.Tu_Destino.api.dto.response.UserResponse;
 import com.riwi.Tu_Destino.infrastructure.abstract_services.IUserService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ public class UserController {
         return ResponseEntity.ok(this.userService.getAll());
     }
 
+    @Operation(summary = "Lista los usuarios por id", description = "Debes enviar el id de usuario para recibir al usuario completo")
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping(path = "/{id}")
     public ResponseEntity<UserResponse> getById(
