@@ -18,27 +18,27 @@ public class UserController {
 
     @Autowired
     private final IUserService userService;
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping
     public ResponseEntity<List<UserResponse>> get(){
         return ResponseEntity.ok(this.userService.getAll());
     }
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping(path = "/{id}")
     public ResponseEntity<UserResponse> getById(
             @PathVariable String id
     ){
         return ResponseEntity.ok(this.userService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PostMapping
     public ResponseEntity<UserResponse>insert(
             @Validated @RequestBody UserRequest user
             ){
         return ResponseEntity.ok(this.userService.create(user));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(
             @PathVariable String id
@@ -46,7 +46,7 @@ public class UserController {
         this.userService.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PutMapping(path = "/{id}")
     public ResponseEntity<UserResponse>update(
             @PathVariable String id,

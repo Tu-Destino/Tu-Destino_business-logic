@@ -23,7 +23,7 @@ public class CommentController {
     private final ICommentService commentService;
 
     // get
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping
     public ResponseEntity<List<CommentResponse>> get(){
         return ResponseEntity.ok(this.commentService.getAll());
@@ -31,7 +31,7 @@ public class CommentController {
 
     // 6.2
     //getById
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping(path = "/{id}")
     public ResponseEntity<CommentResponse> getById(
         @PathVariable Long id
@@ -42,7 +42,7 @@ public class CommentController {
 
 
     // insert
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PostMapping
     public ResponseEntity<CommentResponse> insert(
         @Validated @RequestBody CommentRequest comment){
@@ -50,7 +50,7 @@ public class CommentController {
         }
 
     // eliminar
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete(@PathVariable Long id){
         Map<String,String> response = new HashMap<>();
@@ -62,7 +62,7 @@ public class CommentController {
 
     //.6.1
     // update
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PutMapping(path = "/{id}")
     public ResponseEntity<CommentResponse>update(
             @PathVariable Long id,

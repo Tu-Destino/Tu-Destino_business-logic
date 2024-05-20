@@ -19,13 +19,13 @@ public class CookiesController {
     @Autowired
     private final ICookiesService cookiesService;
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping
     public ResponseEntity<List<CookiesResponse>> get(){
         return ResponseEntity.ok(this.cookiesService.getAll());
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping(path = "/{id}")
     public ResponseEntity<CookiesResponse> getById(
             @PathVariable String id
@@ -33,7 +33,7 @@ public class CookiesController {
         return ResponseEntity.ok(this.cookiesService.getById(id));
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PostMapping
     public ResponseEntity<CookiesResponse> insert(
             @Validated @RequestBody CookiesRequest cookies
@@ -41,14 +41,14 @@ public class CookiesController {
         return ResponseEntity.ok(this.cookiesService.create(cookies));
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @DeleteMapping(path = "{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
         this.cookiesService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PutMapping(path = "/{id}")
     private ResponseEntity<CookiesResponse>update(
             @PathVariable String id,

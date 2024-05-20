@@ -22,19 +22,19 @@ public class PublicacionController {
     @Autowired
     private final IPublicationService publicationService;
 
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping
     public ResponseEntity<List<PublicacionResponse>> get(){
         return ResponseEntity.ok(this.publicationService.getAll());
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PublicacionResponse> getById(
             @PathVariable Long id
     ){
         return  ResponseEntity.ok(this.publicationService.getById(id));
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PostMapping
     public ResponseEntity<PublicacionResponse> insert(
             @Validated @RequestBody PublicacionRequest request
@@ -42,7 +42,7 @@ public class PublicacionController {
         return ResponseEntity.ok(this.publicationService.create(request));
 
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable Long id)
     {
@@ -51,7 +51,7 @@ public class PublicacionController {
         this.publicationService.delete(id);
         return ResponseEntity.ok(response);
     }
-    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/Tu-Destino-V3.0")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PublicacionResponse> update(
             @PathVariable Long id,
