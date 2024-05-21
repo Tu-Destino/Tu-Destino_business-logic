@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +24,7 @@ public class CommentController {
     private final ICommentService commentService;
 
     // get
+    @Operation(summary = "Get all comments", description = "Retrieve a list of all comments in the system.")
     @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<CommentResponse>> get(){
@@ -31,6 +33,7 @@ public class CommentController {
 
     // 6.2
     //getById
+    @Operation(summary = "Get a comment by ID", description = "Retrieve a comment by its ID. \n\nParameters: \n- id: ID of the comment to be retrieved (Path Variable)")
     @CrossOrigin(origins = "*")
     @GetMapping(path = "/{id}")
     public ResponseEntity<CommentResponse> getById(
@@ -42,6 +45,7 @@ public class CommentController {
 
 
     // insert
+    @Operation(summary = "Create a new comment", description = "Create a new comment. \n\nRequest Body: \n- comment: Comment object to be created")
     @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<CommentResponse> insert(
@@ -50,6 +54,7 @@ public class CommentController {
         }
 
     // eliminar
+    @Operation(summary = "Delete a comment", description = "Delete a comment by its ID. \n\nParameters: \n- id: ID of the comment to be deleted (Path Variable)")
     @CrossOrigin(origins = "*")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete(@PathVariable Long id){
@@ -62,6 +67,7 @@ public class CommentController {
 
     //.6.1
     // update
+    @Operation(summary = "Update a comment", description = "Update an existing comment. \n\nParameters: \n- id: ID of the comment to be updated (Path Variable) \n\nRequest Body: \n- comment: Updated comment object")
     @CrossOrigin(origins = "*")
     @PutMapping(path = "/{id}")
     public ResponseEntity<CommentResponse>update(
