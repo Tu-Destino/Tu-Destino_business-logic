@@ -25,50 +25,49 @@ public class PlaceController {
     public ResponseEntity<List<PlaceResponse>> get(){
         return ResponseEntity.ok(this.placeService.getAll());
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
 
     @Operation(summary = "Get a place by ID", description = "Retrieve a place by its ID. \n\nParameters: \n- id: ID of the place to be retrieved (Path Variable)")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse> getById(
             @PathVariable Long id
     ){
         return ResponseEntity.ok(this.placeService.getById(id));
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
     @Operation(summary = "Create a new place", description = "Create a new place. \n\nRequest Body: \n- place: Place object to be created ")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
+
     @PostMapping
     public ResponseEntity<PlaceResponse> insert(
             @Validated @RequestBody PlaceRequest place
             ){
         return ResponseEntity.ok(this.placeService.create(place));
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
 
     @Operation(summary = "Delete a place", description = "Delete a place by its ID. \n\nParameters: \n- id: ID of the place to be deleted (Path Variable)")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
+
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         this.placeService.delete(id);
         return ResponseEntity.noContent().build();
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
 
     @Operation(summary = "Update a place", description = "Update an existing place. \n\nParameters: \n- id: ID of the place to be updated (Path Variable) \n\nRequest Body: \n- place: Updated place object")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
+
     @PutMapping(path = "/{id}")
     public ResponseEntity<PlaceResponse>update(
             @PathVariable Long id,

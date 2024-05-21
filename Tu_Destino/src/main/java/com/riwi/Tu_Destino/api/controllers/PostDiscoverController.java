@@ -36,13 +36,11 @@ public class PostDiscoverController {
     ){
         return  ResponseEntity.ok(this.postDiscoverService.getById(id));
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
 
     @Operation(summary = "Create a new post", description = "Create a new post. \n\nRequest Body: \n- postDiscover: PostDiscover object to be created")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
     @PostMapping
     public ResponseEntity<PostDiscoverResponse> insert(
             @Validated @RequestBody PostDiscoverRequest request
@@ -51,12 +49,11 @@ public class PostDiscoverController {
 
     }
 
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
     @Operation(summary = "Delete a post", description = "Delete a post by its ID. \n\nParameters: \n- id: ID of the post to be deleted (Path Variable)")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable String id)
     {
@@ -65,12 +62,11 @@ public class PostDiscoverController {
         this.postDiscoverService.delete(id);
         return ResponseEntity.ok(response);
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
     @Operation(summary = "Update a post", description = "Update an existing post. \n\nParameters: \n- id: ID of the post to be updated (Path Variable) \n\nRequest Body: \n- postDiscover: Updated PostDiscover object")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
     @PutMapping(path = "/{id}")
     public ResponseEntity<PostDiscoverResponse> update(
             @PathVariable String id,

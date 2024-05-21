@@ -29,24 +29,24 @@ public class PublicacionController {
     public ResponseEntity<List<PublicacionResponse>> get(){
         return ResponseEntity.ok(this.publicationService.getAll());
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
     @Operation(summary = "Get a publication by ID", description = "Retrieve a publication by its ID. \n\nParameters: \n- id: ID of the publication to be retrieved (Path Variable)")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
+
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PublicacionResponse> getById(
             @PathVariable Long id
     ){
         return  ResponseEntity.ok(this.publicationService.getById(id));
     }
-<<<<<<< HEAD
+
     @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
-=======
+
     @Operation(summary = "Create a new publication", description = "Create a new publication. \n\nRequest Body: \n- publication: Publication object to be created")
-    @CrossOrigin(origins = "*")
->>>>>>> f0e659d8b559d31d01b0dc71084fa42ca3e4d3a8
+
+
     @PostMapping
     public ResponseEntity<PublicacionResponse> insert(
             @Validated @RequestBody PublicacionRequest request
