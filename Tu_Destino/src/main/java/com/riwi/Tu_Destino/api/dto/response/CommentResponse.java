@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class CommentResponse {
     private Long id;
     private String comment;
-    private LocalDate comment_date;
+    private LocalDate date;
     private UserResponse user;
     private PlaceResponse place;
 }

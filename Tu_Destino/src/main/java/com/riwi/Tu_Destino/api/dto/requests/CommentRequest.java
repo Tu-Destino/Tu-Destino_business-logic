@@ -8,6 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -20,4 +23,6 @@ public class CommentRequest {
     private String user;
     @NotNull(message = "This attribute is required")
     private Long place;
+
+
 }

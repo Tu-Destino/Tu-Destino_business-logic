@@ -27,14 +27,14 @@ public class PublicacionController {
     public ResponseEntity<List<PublicacionResponse>> get(){
         return ResponseEntity.ok(this.publicationService.getAll());
     }
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
     @GetMapping(path = "/{id}")
     public  ResponseEntity<PublicacionResponse> getById(
             @PathVariable Long id
     ){
         return  ResponseEntity.ok(this.publicationService.getById(id));
     }
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
     @PostMapping
     public ResponseEntity<PublicacionResponse> insert(
             @Validated @RequestBody PublicacionRequest request

@@ -31,7 +31,7 @@ public class PostDiscoverController {
     ){
         return  ResponseEntity.ok(this.postDiscoverService.getById(id));
     }
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
     @PostMapping
     public ResponseEntity<PostDiscoverResponse> insert(
             @Validated @RequestBody PostDiscoverRequest request
@@ -40,7 +40,7 @@ public class PostDiscoverController {
 
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Map<String,String>> delete (@PathVariable String id)
     {
@@ -49,7 +49,7 @@ public class PostDiscoverController {
         this.postDiscoverService.delete(id);
         return ResponseEntity.ok(response);
     }
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "https://tu-destino-v3-0-wed.vercel.app/")
     @PutMapping(path = "/{id}")
     public ResponseEntity<PostDiscoverResponse> update(
             @PathVariable String id,
